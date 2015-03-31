@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Theo
 *Thomas Anderson is a computer programmer who maintains a double life as "Neo" the hacker. - Combination of Neo and Thomas*
 
@@ -193,3 +194,6 @@ There is a file called, `TheoConfig.json.example` which you should copy to `Theo
 
 [Cory Wiles](http://www.corywiles.com/) ([@kwylez](https://twitter.com/kwylez))
 
+=======
+# neo4j-ios
+>>>>>>> 9415dbd5b820b6f7ebb3e5a2908fa8a2d504c8e3
