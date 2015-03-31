@@ -12,10 +12,10 @@ let RelationshipDataFromNodeKey = "fromNode"
 let RelationshipDataToNodeKey   = "toNode"
 let RelationshipDataTypeKey     = "type"
 
-let TheoRelationshipExtensionsKey: String = "extensions"
-let TheoRelationshipStartKey: String      = "start"
-let TheoRelationshipPropertyKey: String   = "property"
-let TheoRelationshipSelfKey: String       = "self"
+var TheoRelationshipExtensionsKey: String = "extensions"
+var TheoRelationshipStartKey: String      = "start"
+var TheoRelationshipPropertyKey: String   = "property"
+var TheoRelationshipSelfKey: String       = "self"
 let TheoRelationshipPropertiesKey: String = "properties"
 let TheoRelationshipTypeKey: String       = "type"
 let TheoRelationshipEndKey: String        = "end"
@@ -24,16 +24,16 @@ let TheoRelationshipMetaDataKey: String   = "metadata"
 
 public struct RelationshipMeta: Printable {
 
-    let extensions: [String: AnyObject] = [String: AnyObject]()
-    let start: String                   = ""
-    let property: String                = ""
-    let relationship_self: String       = ""
-    let properties: String              = ""
-    let type: String                    = ""//TODO: add custom function so it will return RelationshipType
-    let end: String                     = ""
-    let data: [String: AnyObject]       = [String: AnyObject]()
+    var extensions: [String: AnyObject] = [String: AnyObject]()
+    var start: String                   = ""
+    var property: String                = ""
+    var relationship_self: String       = ""
+    var properties: String              = ""
+    var type: String                    = ""//TODO: add custom function so it will return RelationshipType
+    var end: String                     = ""
+    var data: [String: AnyObject]       = [String: AnyObject]()
 
-    public let metadata: [String: AnyObject] = [String: AnyObject]()
+    public var metadata: [String: AnyObject] = [String: AnyObject]()
     
     public func relationshipID() -> String {
         
@@ -48,23 +48,23 @@ public struct RelationshipMeta: Printable {
             
             switch key {
             case TheoRelationshipExtensionsKey:
-                self.extensions = value as Dictionary
+                self.extensions = value as! Dictionary
             case TheoRelationshipStartKey:
-                self.start = value as String
+                self.start = value as! String
             case TheoRelationshipPropertyKey:
-                self.property = value as String
+                self.property = value as! String
             case TheoRelationshipSelfKey:
-                self.relationship_self = value as String
+                self.relationship_self = value as! String
             case TheoRelationshipPropertiesKey:
-                self.properties = value as String
+                self.properties = value as! String
             case TheoRelationshipTypeKey:
-                self.type = value as String
+                self.type = value as! String
             case TheoRelationshipEndKey:
-                self.end = value as String
+                self.end = value as! String
             case TheoRelationshipDataKey:
-                self.data = value as Dictionary
+                self.data = value as! Dictionary
             case TheoRelationshipMetaDataKey:
-                self.metadata = value as Dictionary
+                self.metadata = value as! Dictionary
             default:
                 ""
             }
@@ -153,7 +153,7 @@ public class Relationship {
     lazy var fromNode: String = {
         
         if let object: AnyObject = self.relationshipCreateMeta[RelationshipDataFromNodeKey] {
-            return object as String
+            return object as! String
         }
 
         return ""
@@ -162,7 +162,7 @@ public class Relationship {
     lazy var toNode: String = {
         
         if let object: AnyObject = self.relationshipCreateMeta[RelationshipDataToNodeKey] {
-            return object as String
+            return object as! String
         }
         
         return ""
@@ -171,7 +171,7 @@ public class Relationship {
     lazy var relationshipType: String = {
 
         if let object: AnyObject = self.relationshipCreateMeta[RelationshipDataTypeKey] {
-            return object as String
+            return object as! String
         }
         
         return ""

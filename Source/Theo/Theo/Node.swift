@@ -27,22 +27,22 @@ let TheoNodeMetaData: String                   = "metadata"
 
 public struct NodeMeta: Printable {
     
-    let extensions: [String: AnyObject]      = [String: AnyObject]()
-    let page_traverse: String                = ""
-    let labels: String                       = ""
-    let outgoing_relationships: String       = ""
-    let traverse: String                     = ""
-    let all_typed_relationships: String      = ""
-    let property: String                     = ""
-    let all_relationships: String            = ""
-    let node_self: String                    = ""
-    let outgoing_typed_relationships: String = ""
-    let properties: String                   = ""
-    let incoming_relationships: String       = ""
-    let incoming_typed_relationships: String = ""
-    let create_relationship: String          = ""
-    let data: [String: AnyObject]            = [String: AnyObject]()
-    let metadata: [String: AnyObject]        = [String: AnyObject]()
+    var extensions: [String: AnyObject]      = [String: AnyObject]()
+    var page_traverse: String                = ""
+    var labels: String                       = ""
+    var outgoing_relationships: String       = ""
+    var traverse: String                     = ""
+    var all_typed_relationships: String      = ""
+    var property: String                     = ""
+    var all_relationships: String            = ""
+    var node_self: String                    = ""
+    var outgoing_typed_relationships: String = ""
+    var properties: String                   = ""
+    var incoming_relationships: String       = ""
+    var incoming_typed_relationships: String = ""
+    var create_relationship: String          = ""
+    var data: [String: AnyObject]            = [String: AnyObject]()
+    var metadata: [String: AnyObject]        = [String: AnyObject]()
 
     public func nodeID() -> String {
 
@@ -57,37 +57,37 @@ public struct NodeMeta: Printable {
             
             switch key {
             case TheoNodeExtensions:
-                self.extensions = value as Dictionary
+                self.extensions = value as! Dictionary
             case TheoNodePagedTraverse:
-                self.page_traverse = value as String
+                self.page_traverse = value as! String
             case TheoNodeLabels:
-                self.labels = value as String
+                self.labels = value as! String
             case TheoNodeOutGoingRelationships:
-                self.outgoing_relationships = value as String
+                self.outgoing_relationships = value as! String
             case TheoNodeTraverse:
-                self.traverse = value as String
+                self.traverse = value as! String
             case TheoNodeAllRelationships:
-                self.all_relationships = value as String
+                self.all_relationships = value as! String
             case TheoNodeProperty:
-                self.property = value as String
+                self.property = value as! String
             case TheoNodeAllRelationships:
-                self.all_relationships = value as String
+                self.all_relationships = value as! String
             case TheoNodeSelf:
-                self.node_self = value as String
+                self.node_self = value as! String
             case TheoNodeOutGoingTypedRelationships:
-                self.outgoing_typed_relationships = value as String
+                self.outgoing_typed_relationships = value as! String
             case TheoNodeProperties:
-                self.properties = value as String
+                self.properties = value as! String
             case TheoNodeIncomingRelationships:
-                self.incoming_relationships = value as String
+                self.incoming_relationships = value as! String
             case TheoNodeIncomingTypedRelationships:
-                self.incoming_typed_relationships = value as String
+                self.incoming_typed_relationships = value as! String
             case TheoNodeCreateRelationship:
-                self.create_relationship = value as String
+                self.create_relationship = value as! String
             case TheoNodeData:
-                self.data = value as Dictionary
+                self.data = value as! Dictionary
             case TheoNodeMetaData:
-                self.metadata = value as Dictionary
+                self.metadata = value as! Dictionary
             default:
                 ""
             }
