@@ -47,14 +47,19 @@ public class Configuration {
 // session configuration
 private class TheoTaskSessionDelegate: NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate {
     
-    // For Session based challenges
-    func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-        println("session based challenge")
+     // For Session based challenges
+    
+    @objc func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        print("session based challenge")
     }
+//    @objc optional  func URLSession(_: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+//        
+//    }
     
     // For Session Task based challenges
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-        println("session task based challenge")    
+    
+    @objc func URLSession(session: NSURLSession, task: NSURLSessionTask, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        print("session task based challenge")
     }
 }
 
@@ -97,8 +102,8 @@ class Session {
     /// The session delegate is set to nil and will use the "system" provided
     /// delegate
     ///
-    /// :param: NSOperationQueue? queue
-    /// :returns: Session
+    /// - parameter NSOperationQueue?: queue
+    /// - returns: Session
     required init(queue: NSOperationQueue?) {
 
         if let operationQueue = queue {
@@ -115,8 +120,8 @@ class Session {
     /// The operation queue param is set to nil which translates to using 
     /// NSOperationQueue.mainQueue
     ///
-    /// :returns: Session
+    /// - returns: Session
     convenience init() {
-        self.init(queue: nil);
+        self.init(queue: nil)
     }
 }
